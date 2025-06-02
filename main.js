@@ -13,7 +13,7 @@ document.getElementById('calcularBtn').addEventListener('click', function () {
     const activos = document.getElementById('Activos').value || 0;
     const separacionBienes = document.querySelector('input[name="separacion"]:checked')?.value;
     const terminosAceptados = document.getElementById('terminos').checked;
-    const paginasJudiciales = document.getElementById('funcion').checked;
+    // const paginasJudiciales = document.getElementById('funcion').checked;
 
     // Validar que todos los campos estén llenos
     // if (!tipoProducto) {
