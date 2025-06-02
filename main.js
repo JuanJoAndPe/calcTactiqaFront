@@ -128,7 +128,6 @@ document.getElementById('calcularBtn').addEventListener('click', function () {
     let score;
     let scoreConyuge;
     let evaluacionIntegral;
-    let validarIngresos;
     let ctaCorrientes;
     let deudaVigenteTotal;
     let cuotaTotal;
@@ -136,6 +135,15 @@ document.getElementById('calcularBtn').addEventListener('click', function () {
     let valorCarteraCastigada;
     let deudaVigenteConyuge = 0;
     let cuotaTotalConyuge = 0;
+    let numOpActuales; 
+    let mesesSinVencimientos;
+    let carteraCastigada;
+    let demandaJudicial;
+    let numOpActualesConyuge;
+    let mesesSinVencimientosConyuge;
+    let carteraCastigadaConyuge;
+    let demandaJudicialConyuge;
+
 
     // Crear un array de promesas para las solicitudes fetch
     const fetchPromises = [];
@@ -300,11 +308,11 @@ document.getElementById('calcularBtn').addEventListener('click', function () {
         let evaluacionIntegral;
         if(score >=900 && numOpActuales <=5 && mesesSinVencimientos >=24){
           evaluacionIntegral = "AAA"
-        } else if(score >=800 && numOpActuales >5 <7 && mesesSinVencimientos <24 >=12){
+        } else if(score >=800 && numOpActuales >5 && numOpActuales <7 && mesesSinVencimientos <24 && mesesSinVencimientos >=12){
           evaluacionIntegral = "AA"
-        }else if(score >=700 && numOpActuales >7 <10 && mesesSinVencimientos <12 >=6){
+        }else if(score >=700 && numOpActuales >7 && numOpActuales <10 && mesesSinVencimientos <12 && mesesSinVencimientos >=6){
           evaluacionIntegral = "A"
-        }else if(score >=620 <700 && numOpActuales >10 && mesesSinVencimientos <6){
+        }else if(score >=620 && score <700 && numOpActuales >10 && mesesSinVencimientos <6){
           evaluacionIntegral = "Analista"
         }else if(score <620){
           evaluacionIntegral = "RECHAZAR"
@@ -312,9 +320,9 @@ document.getElementById('calcularBtn').addEventListener('click', function () {
         let evaIntegralConyuge;
         if(scoreConyuge >=900 && numOpActualesConyuge <=5 && mesesSinVencimientosConyuge >=24){
           evaIntegralConyuge = "AAA"
-        } else if(scoreConyuge >=800 && numOpActualesConyuge >5 <7 && mesesSinVencimientosConyuge <24 >=12){
+        } else if(scoreConyuge >=800 && numOpActualesConyuge >5 &&numOpActualesConyuge <7 && mesesSinVencimientosConyuge <24 && mesesSinVencimientosConyuge >=12){
           evaIntegralConyuge = "AA"
-        }else if(scoreConyuge >=700 && numOpActualesConyuge >7 <10 && mesesSinVencimientosConyuge <12 >=6){
+        }else if(scoreConyuge >=700 && numOpActualesConyuge >7 &&numOpActualesConyuge <10 && mesesSinVencimientosConyuge <12 && mesesSinVencimientosConyuge >=6){
           evaIntegralConyuge = "A"
         }else if(scoreConyuge >=620 <700 && numOpActualesConyuge >10 && mesesSinVencimientosConyuge <6){
           evaIntegralConyuge = "Analista"
