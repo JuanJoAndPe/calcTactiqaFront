@@ -142,7 +142,7 @@ document.getElementById('calcularBtn').addEventListener('click', function () {
 
     //Función para llamar API
     fetchPromises.push(
-        fetch('http://localhost:3000/proxy', {
+        fetch('https://calctactiqabackend.onrender.com:3000/proxy', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json',
                      'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -169,7 +169,7 @@ document.getElementById('calcularBtn').addEventListener('click', function () {
       // Si existe cédula del cónyuge, agregamos otra solicitud fetch para el cónyuge
       if (cedulaConyuge) {
         fetchPromises.push(
-          fetch('http://localhost:3000/proxy', {
+          fetch('https://calctactiqabackend.onrender.com:3000/proxy', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json',
                        'Authorization': 'Bearer ' + localStorage.getItem('token')
