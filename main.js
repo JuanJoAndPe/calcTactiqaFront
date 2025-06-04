@@ -72,53 +72,53 @@ document.getElementById('calcularBtn').addEventListener('click', function () {
 
     const regexCedula = /^\d{10}$/;
 
-    // Validar que el monto no esté vacío y sea mayor que 0
-    if (isNaN(montoNum) || montoNum <= 0) {
-        window.alert("El campo 'Monto' no puede estar vacío y debe ser mayor que 0.");
-        return;
-    }
+    // // Validar que el monto no esté vacío y sea mayor que 0
+    // if (isNaN(montoNum) || montoNum <= 0) {
+    //     window.alert("El campo 'Monto' no puede estar vacío y debe ser mayor que 0.");
+    //     return;
+    // }
 
-    // Validar que el plazo no esté vacío y sea mayor que 0
-    if (isNaN(plazoNum) || plazoNum <= 0) {
-        window.alert("El campo 'Plazo' no puede estar vacío y debe ser mayor que 0.");
-        return;
-    }
+    // // Validar que el plazo no esté vacío y sea mayor que 0
+    // if (isNaN(plazoNum) || plazoNum <= 0) {
+    //     window.alert("El campo 'Plazo' no puede estar vacío y debe ser mayor que 0.");
+    //     return;
+    // }
 
-    // Validar que la cédula del deudor tenga 10 dígitos
-    if (!regexCedula.test(cedulaDeudor)) {
-        window.alert("La cédula del deudor debe tener exactamente 10 dígitos.");
-        return;
-    }
+    // // Validar que la cédula del deudor tenga 10 dígitos
+    // if (!regexCedula.test(cedulaDeudor)) {
+    //     window.alert("La cédula del deudor debe tener exactamente 10 dígitos.");
+    //     return;
+    // }
 
-    // Validar que la cédula del cónyuge tenga 10 dígitos si es requerida
-    if ((estadocivil === "Casada/o" || estadocivil === "Unión Libre") && !regexCedula.test(cedulaConyuge)) {
-        window.alert("La cédula del cónyuge debe tener exactamente 10 dígitos.");
-        return;
-    }
+    // // Validar que la cédula del cónyuge tenga 10 dígitos si es requerida
+    // if ((estadocivil === "Casada/o" || estadocivil === "Unión Libre") && !regexCedula.test(cedulaConyuge)) {
+    //     window.alert("La cédula del cónyuge debe tener exactamente 10 dígitos.");
+    //     return;
+    // }
 
-    // Validar que el ingreso del deudor no sea negativo
-    if (ingresoDeudorNum <= 0) {
-        window.alert("El ingreso del deudor no puede ser negativo y debe ser mayor que 0.");
-        return;
-    }
+    // // Validar que el ingreso del deudor no sea negativo
+    // if (ingresoDeudorNum <= 0) {
+    //     window.alert("El ingreso del deudor no puede ser negativo y debe ser mayor que 0.");
+    //     return;
+    // }
 
-    // Validar que el ingreso del cónyuge no sea negativo
-    if (ingresoConyugeNum < 0) {
-        window.alert("El ingreso del cónyuge no puede ser negativo.");
-        return;
-    }
+    // // Validar que el ingreso del cónyuge no sea negativo
+    // if (ingresoConyugeNum < 0) {
+    //     window.alert("El ingreso del cónyuge no puede ser negativo.");
+    //     return;
+    // }
 
-    // Validar que otros ingresos no sean negativos
-    if (otrosIngresosNum < 0) {
-        window.alert("Los otros ingresos no pueden ser negativos.");
-        return;
-    }
+    // // Validar que otros ingresos no sean negativos
+    // if (otrosIngresosNum < 0) {
+    //     window.alert("Los otros ingresos no pueden ser negativos.");
+    //     return;
+    // }
 
-    // Validar que hijos no sean negativos
-    if (numeroHijos < 0) {
-        window.alert("Los hijos no pueden ser negativos.");
-        return;
-    }
+    // // Validar que hijos no sean negativos
+    // if (numeroHijos < 0) {
+    //     window.alert("Los hijos no pueden ser negativos.");
+    //     return;
+    // }
 
     //Variables usadas en API y posterior
     let identificacionSujeto;
@@ -150,7 +150,7 @@ document.getElementById('calcularBtn').addEventListener('click', function () {
 
     //Función para llamar API
     fetchPromises.push(
-        fetch('https://calctactiqabackend.onrender.com/proxy', {
+        fetch('https://tactiqaec.com/preaprobaciones/proxy', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json',
                      'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -177,7 +177,7 @@ document.getElementById('calcularBtn').addEventListener('click', function () {
       // Si existe cédula del cónyuge, agregamos otra solicitud fetch para el cónyuge
       if (cedulaConyuge) {
         fetchPromises.push(
-          fetch('https://calctactiqabackend.onrender.com/proxy', {
+          fetch('https://tactiqaec.com/preaprobaciones/proxy', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json',
                        'Authorization': 'Bearer ' + localStorage.getItem('token')
